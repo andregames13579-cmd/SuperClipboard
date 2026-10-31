@@ -1,0 +1,1878 @@
+
+Na aba decorações não coloca todas. Vai ficar muito bagunçado. Coloca só visuais, buffs e nível da base, que vai ser o que tem por agora, entendeu? E eu também quero que, tipo assim, em vez de mostrar um texto falando o que é aquilo, eu quero que mostre uma foto e embaixo, nesse mesmo lugar, não embaixo, eu falo num lugar onde só mostra o texto. Eu falo, por exemplo, tem um quadrado onde vai ficar a imagem e embaixo o que essa coisa dá, entendeu?
+Sim, agora ficou certinho. 👍
+
+Na aba Decorações, vamos ter somente 3 filtros por enquanto:
+
+🎨 Visuais — coisas que só mudam a aparência da base.
+🛡️ Buffs — decorações que dão benefícios reais para a base.
+⭐ Nível da Base — decorações que contribuem para aumentar/progredir o nível da base.
+Não vamos colocar “Defesa”, “Produção”, “Todas” etc. por enquanto. Se no futuro aparecerem novos tipos de decoração, aí podemos criar novos filtros.
+
+E a apresentação dos itens
+Também entendi a mudança visual que você quer.
+
+Em vez de uma lista tipo:
+
+Boné de Patrulha
+Boné tático com aba curva reforçada
+70 créditos
+
+Quero que o sistema use cards visuais.
+
+Algo nessa ideia:
+
+┌───────────────────┐
+│                   │
+│      IMAGEM       │
+│      DO ITEM      │
+│                   │
+├───────────────────┤
+│ +10% resistência  │
+└───────────────────┘
+Ou seja:
+
+quadrado → imagem do item
+
+e no próprio card, em uma área reservada abaixo da imagem → informação curta do que ele fornece.
+
+Não quero aquele monte de texto descritivo ocupando a tela.
+
+Para um item de personagem:
+
+┌─────────────┐
+│   IMAGEM    │
+│   DA ROUPA  │
+├─────────────┤
+│ +8% defesa  │
+└─────────────┘
+Para uma decoração visual:
+
+┌─────────────┐
+│   IMAGEM    │
+│   DO TAPETE │
+├─────────────┤
+│ Visual      │
+└─────────────┘
+Para uma decoração com buff:
+
+┌─────────────┐
+│   IMAGEM    │
+│ DA DECORAÇÃO│
+├─────────────┤
+│ +15% portão │
+└─────────────┘
+E para nível da base:
+
+┌─────────────┐
+│   IMAGEM    │
+│ DA ESTRUTURA│
+├─────────────┤
+│ +1 nível    │
+└─────────────┘
+A ideia é que a imagem seja o destaque e o texto seja curto e objetivo, mostrando principalmente o que aquilo fornece.
+
+E isso vale para a Loja e para a Personalização também: os filtros organizam os itens e os cards mostram visualmente o item + seu efeito, em vez daquele textão atual.
+
+Agora sim dá para montar o Prompt 3 definitivo com essas regras.
+
+Pode montar o prompt aí. Acredito que já tá tudo decidido em relação ao prompt 3, né?
+Sim. Agora o Prompt 3 está fechado. Vou juntar tudo que decidimos, mas mantendo o foco em Loja + Personalização + Decorações, para o Google AI Studio não sair mexendo em sistemas que não têm relação.
+
+Manda este inteiro:
+
+Quero fazer uma reformulação completa e organizada do sistema de LOJA, PERSONALIZAÇÃO e DECORAÇÕES do HORDA.
+
+IMPORTANTE:
+Antes de alterar qualquer coisa, analise a implementação atual desses três sistemas e identifique:
+- itens existentes;
+- categorias atuais;
+- itens já comprados/desbloqueados;
+- sistema de créditos;
+- objetos decorativos físicos existentes na base;
+- sistema de equipar itens;
+- sistema de personalização;
+- sistema de decoração da base.
+
+NÃO recrie o projeto do zero.
+
+NÃO remova estruturas funcionais da base que não pertençam ao sistema antigo de decoração.
+
+O objetivo é substituir o sistema antigo por uma estrutura mais organizada, visual e funcional.
+
+==================================================
+1. LOJA — ORGANIZAÇÃO POR FILTROS
+==================================================
+
+A Loja deve possuir filtros de categoria para evitar uma lista enorme e desorganizada.
+
+Na parte de itens do PERSONAGEM, criar filtros:
+
+- CORPO
+- ROUPAS
+- CABEÇA
+- COSTAS
+- SKINS
+
+Esses filtros funcionam como categorias de visualização.
+
+Exemplo:
+
+Ao selecionar "CABEÇA":
+mostrar somente itens relacionados à cabeça.
+
+Ao selecionar "ROUPAS":
+mostrar somente roupas.
+
+Ao selecionar "COSTAS":
+mostrar somente itens das costas.
+
+Ao selecionar "SKINS":
+mostrar somente skins.
+
+Não mostrar todos os itens juntos quando uma categoria específica estiver selecionada.
+
+A navegação dos filtros deve funcionar bem no celular.
+
+No mobile, a barra pode ser horizontalmente rolável/arrastável para que todas as categorias possam ser acessadas sem apertar os elementos.
+
+Use o estilo visual atual do HORDA.
+
+Não copie literalmente a interface da referência anterior; utilize apenas a ideia de filtros organizados horizontalmente.
+
+==================================================
+2. LOJA — DECORAÇÕES
+==================================================
+
+A Loja também deve possuir uma seção de Decorações.
+
+Para DECORAÇÕES, por enquanto existem SOMENTE estes três filtros:
+
+- VISUAIS
+- BUFFS
+- NÍVEL DA BASE
+
+NÃO adicionar filtros como:
+- Todas
+- Defesa
+- Produção
+- Exploração
+- etc.
+
+Essas categorias adicionais não existem por enquanto.
+
+VISUAIS:
+Decorações que alteram somente a aparência da base e não fornecem vantagens de gameplay.
+
+Exemplos:
+- tapetes;
+- bandeiras;
+- aparência do piso;
+- aparência das paredes;
+- iluminação;
+- outros elementos puramente visuais.
+
+BUFFS:
+Decorações que fornecem benefícios reais para a BASE.
+
+Exemplos possíveis:
+- aumentar resistência dos portões;
+- melhorar alguma eficiência da base;
+- melhorar alguma capacidade de uma estrutura;
+- outros bônus equilibrados.
+
+NÍVEL DA BASE:
+Decorações/estruturas especiais que contribuem para a progressão ou nível da base.
+
+Exemplo:
+uma determinada decoração pode fornecer +1 de contribuição para determinado nível/progressão da base.
+
+Os efeitos precisam ser reais e integrados ao sistema existente.
+
+==================================================
+3. VISUAL DOS ITENS
+==================================================
+
+Quero mudar a forma como os itens são apresentados.
+
+NÃO quero uma lista cheia de textos longos.
+
+Os itens devem ser apresentados principalmente através de CARDS VISUAIS.
+
+Cada item deve possuir um espaço quadrado ou aproximadamente quadrado para mostrar uma IMAGEM/REPRESENTAÇÃO VISUAL DO ITEM.
+
+A imagem deve ser o elemento principal do card.
+
+Na parte inferior do mesmo card deve existir uma área curta de texto mostrando principalmente O QUE O ITEM FORNECE.
+
+Exemplo:
+
+┌───────────────────┐
+│                   │
+│     IMAGEM        │
+│     DO ITEM       │
+│                   │
+├───────────────────┤
+│ +8% resistência   │
+└───────────────────┘
+
+Outro exemplo:
+
+┌───────────────────┐
+│                   │
+│  IMAGEM DO TAPETE │
+│                   │
+├───────────────────┤
+│ Visual             │
+└───────────────────┘
+
+Outro:
+
+┌───────────────────┐
+│                   │
+│ IMAGEM DECORAÇÃO  │
+│                   │
+├───────────────────┤
+│ +15% resistência  │
+│ dos portões        │
+└───────────────────┘
+
+O texto deve ser curto e objetivo.
+
+Evitar grandes descrições ocupando espaço.
+
+Se houver preço, ele pode aparecer de forma clara no card da Loja.
+
+==================================================
+4. LOJA — COMPRA REAL
+==================================================
+
+Existe atualmente um problema em que os créditos aparecem na interface, mas não são realmente gastos quando o jogador compra um item.
+
+CORRIJA ISSO.
+
+A compra deve funcionar de verdade.
+
+Quando o jogador comprar um item:
+
+1. verificar se possui créditos suficientes;
+2. se não possuir, bloquear a compra;
+3. se possuir, descontar o preço real do saldo;
+4. atualizar o saldo imediatamente na interface;
+5. registrar o item como comprado/desbloqueado;
+6. remover o item da lista de itens disponíveis para compra;
+7. disponibilizar o item na Personalização ou Decorações correspondente;
+8. salvar essa informação usando o sistema de salvamento existente.
+
+Exemplo:
+
+Jogador possui:
+
+201 créditos.
+
+Compra item de:
+
+70 créditos.
+
+Resultado:
+
+131 créditos.
+
+Não pode ser apenas uma mudança visual na interface.
+
+O saldo real deve ser alterado.
+
+==================================================
+5. ITENS JÁ COMPRADOS NÃO DEVEM CONTINUAR NA LOJA
+==================================================
+
+Se o jogador já comprou um item:
+
+NÃO mostrar esse item novamente como disponível para compra.
+
+Não deixar o item ocupando espaço na Loja apenas mostrando "Comprado".
+
+O item deve sair da lista de compra.
+
+Ele passa a existir na coleção/personalização do jogador.
+
+Isso deve continuar correto depois de:
+- sair do mundo;
+- entrar novamente;
+- recarregar a página;
+- reiniciar o jogo.
+
+==================================================
+6. PERSONALIZAÇÃO DO PERSONAGEM
+==================================================
+
+A tela de Personalização deve ser utilizada para EQUIPAR os itens que o jogador já possui.
+
+Criar filtros organizados:
+
+- CORPO
+- ROUPAS
+- CABEÇA
+- COSTAS
+- SKINS
+
+Esses filtros devem funcionar como categorias.
+
+Ao selecionar uma categoria, mostrar somente os itens daquela categoria.
+
+Não misturar tudo em uma lista enorme.
+
+A aparência da navegação pode seguir a ideia da barra de categorias existente, porém com uma apresentação própria do HORDA.
+
+==================================================
+7. NOVOS ITENS DO PERSONAGEM
+==================================================
+
+Os itens antigos de personalização devem ser removidos/substituídos.
+
+Isso inclui os itens antigos relacionados a:
+
+- roupas;
+- cabeça;
+- costas;
+- skins;
+- e demais itens antigos de aparência que pertençam ao sistema anterior.
+
+Não quero simplesmente esconder os itens antigos.
+
+Eles devem ser removidos do sistema antigo e substituídos pelo novo conjunto de itens.
+
+Os novos itens de personagem devem possuir BUFFS REAIS.
+
+Exemplos de possíveis efeitos:
+
+ROUPAS:
+- resistência;
+- velocidade;
+- sobrevivência;
+- etc.
+
+CABEÇA:
+- resistência;
+- eficiência da lanterna;
+- percepção;
+- etc.
+
+COSTAS:
+- velocidade;
+- capacidade;
+- resistência;
+- etc.
+
+SKINS:
+- algum benefício equilibrado quando apropriado.
+
+Não é necessário usar exatamente esses exemplos.
+
+Crie efeitos coerentes e equilibrados.
+
+IMPORTANTE:
+
+Nenhum item deve ser obrigatório.
+
+O jogador deve conseguir jogar normalmente sem equipar determinado item.
+
+==================================================
+8. BUFFS DOS ITENS DO PERSONAGEM
+==================================================
+
+Os buffs dos equipamentos precisam afetar o gameplay REAL.
+
+Não criar apenas um texto dizendo:
+
+"+10% velocidade"
+
+sem alterar a velocidade real.
+
+Se um equipamento fornecer velocidade:
+a velocidade real do jogador deve mudar.
+
+Se fornecer resistência:
+o sistema real de dano deve considerar essa resistência.
+
+Se fornecer eficiência da lanterna:
+a eficiência real deve ser alterada.
+
+Etc.
+
+Os buffs devem ser aplicados somente enquanto o item estiver equipado.
+
+Ao trocar/remover o item, o bônus correspondente deve ser removido corretamente.
+
+Evite qualquer possibilidade de acumulação incorreta.
+
+Exemplo de bug que NÃO pode acontecer:
+
+equipar → +10%
+desequipar → continua +10%
+equipar novamente → +20%
+
+Os atributos devem ser recalculados corretamente com base nos equipamentos atualmente ativos.
+
+==================================================
+9. APARÊNCIA REAL DO PERSONAGEM
+==================================================
+
+Os itens equipados precisam aparecer visualmente no personagem durante o gameplay.
+
+Não basta aparecer apenas na tela de Personalização.
+
+Exemplo:
+
+Se o jogador equipar uma capa:
+a capa deve aparecer atrás do personagem durante a exploração.
+
+Os elementos visuais devem respeitar a perspectiva 2D 3/4 existente.
+
+A aparência do personagem deve acompanhar o equipamento atualmente equipado.
+
+==================================================
+10. DECORAÇÕES ANTIGAS DA BASE
+==================================================
+
+Existe atualmente um conjunto de objetos antigos que aparecem fisicamente na base e estão relacionados ao sistema antigo de decoração, incluindo elementos identificados como algo semelhante a:
+
+"Objetos decorativos físicos do Abrigo"
+
+Esses elementos antigos precisam ser LOCALIZADOS e REMOVIDOS caso pertençam ao sistema antigo de decoração.
+
+Não basta remover o botão do menu.
+
+Não basta esconder a categoria.
+
+Os objetos físicos antigos também precisam deixar de aparecer na base.
+
+IMPORTANTE:
+
+Não remover:
+- paredes funcionais;
+- portões;
+- gerador;
+- Núcleo;
+- bancadas;
+- estruturas funcionais;
+- construções que façam parte da base atual;
+- qualquer elemento que não seja uma decoração antiga.
+
+Somente remover/substituir os objetos pertencentes ao sistema antigo de decoração.
+
+==================================================
+11. NOVO SISTEMA DE DECORAÇÕES DA BASE
+==================================================
+
+As novas decorações devem ser organizadas nos três filtros:
+
+VISUAIS
+BUFFS
+NÍVEL DA BASE
+
+Nada além dessas três categorias por enquanto.
+
+------------------------------------------
+VISUAIS
+------------------------------------------
+
+Decorações puramente estéticas.
+
+Não fornecem nenhuma vantagem de gameplay.
+
+Exemplos:
+
+- tapetes;
+- bandeiras;
+- diferentes materiais/texturas do piso;
+- iluminação personalizada;
+- aparência visual das paredes;
+- outros objetos decorativos.
+
+Esses itens servem somente para personalizar a aparência da base.
+
+------------------------------------------
+BUFFS
+------------------------------------------
+
+Decorações que fornecem vantagens reais para a BASE.
+
+Exemplos:
+
+- aumentar resistência dos portões;
+- melhorar alguma eficiência;
+- aumentar capacidade;
+- melhorar alguma função de uma estrutura;
+- outros bônus equilibrados.
+
+O efeito precisa ser real no gameplay.
+
+Não mostrar apenas um texto dizendo que existe um bônus.
+
+------------------------------------------
+NÍVEL DA BASE
+------------------------------------------
+
+Decorações/estruturas especiais que contribuem para o nível ou progressão da base.
+
+Exemplo:
+
+Uma decoração especial pode fornecer:
+
+"+1 contribuição para nível da base"
+
+ou outro efeito equivalente dentro do sistema de progressão existente.
+
+IMPORTANTE:
+
+O bônus precisa ser calculado de forma segura.
+
+Se o jogador ativar a decoração:
+o bônus entra.
+
+Se desativar/remover:
+o bônus sai.
+
+Não permitir que o jogador acumule o mesmo bônus infinitamente equipando e desequipando.
+
+==================================================
+12. DECORAÇÕES VISUAIS ESPECÍFICAS
+==================================================
+
+O sistema deve permitir futuramente, e onde já for possível agora, opções como:
+
+- textura/material do chão;
+- cor da iluminação da base;
+- aparência visual das paredes indestrutíveis;
+- tapetes;
+- bandeiras.
+
+A alteração visual das paredes NÃO pode alterar a resistência delas.
+
+As paredes continuam indestrutíveis.
+
+Tapetes não possuem efeito de gameplay.
+
+Bandeiras não possuem efeito de gameplay.
+
+As bandeiras devem ficar visíveis, principalmente nos cantos externos da base, sem ficarem escondidas atrás ou embaixo de estruturas.
+
+==================================================
+13. SISTEMA DE EQUIPAMENTO E DECORAÇÃO
+==================================================
+
+Separar claramente os dois conceitos:
+
+PERSONAGEM:
+equipamentos → buffs do personagem.
+
+BASE:
+decorações funcionais → buffs da base.
+
+DECORAÇÕES VISUAIS:
+somente aparência.
+
+NÃO misturar os atributos do personagem com os atributos da base.
+
+==================================================
+14. SALVAMENTO
+==================================================
+
+Tudo precisa utilizar o sistema de salvamento existente.
+
+Salvar corretamente:
+
+- créditos;
+- itens comprados;
+- itens desbloqueados;
+- equipamentos atualmente equipados;
+- buffs ativos;
+- decorações compradas;
+- decorações atualmente ativas;
+- progressão fornecida pelas decorações;
+- personalização visual;
+- aparência da base.
+
+Ao sair e voltar ao mundo, tudo deve continuar correto.
+
+==================================================
+15. RESPONSIVIDADE
+==================================================
+
+Tudo deve funcionar corretamente em:
+
+- celular portrait;
+- celular landscape;
+- PC/Chromebook.
+
+No celular:
+
+- filtros devem ser acessíveis;
+- barras de categorias podem ser horizontalmente roláveis;
+- cards devem se adaptar ao espaço disponível;
+- imagens não podem ficar cortadas;
+- texto não pode sair da tela;
+- botões precisam continuar fáceis de tocar.
+
+Não alterar o layout do PC desnecessariamente ao corrigir o mobile.
+
+==================================================
+16. REGRA FINAL DE IMPLEMENTAÇÃO
+==================================================
+
+Antes de considerar concluído, faça uma auditoria do sistema antigo.
+
+Verifique se os itens antigos realmente foram removidos e não apenas escondidos.
+
+Verifique também os objetos físicos antigos da base.
+
+Depois confirme:
+
+LOJA:
+- filtros funcionando;
+- compra funcionando;
+- créditos sendo descontados;
+- item comprado desaparecendo da loja;
+- item comprado aparecendo na coleção correta.
+
+PERSONALIZAÇÃO:
+- filtros funcionando;
+- somente itens adquiridos disponíveis;
+- equipamento funcionando;
+- aparência do personagem atualizada;
+- buffs reais funcionando.
+
+DECORAÇÕES:
+- somente os três filtros: VISUAIS, BUFFS e NÍVEL DA BASE;
+- cards visuais funcionando;
+- imagem do item visível;
+- texto curto mostrando o efeito;
+- decorações visuais sem buffs;
+- decorações funcionais com buffs reais;
+- decorações de nível afetando corretamente a progressão.
+
+BASE:
+- objetos decorativos antigos removidos;
+- novas decorações funcionando;
+- nenhuma decoração antiga duplicada;
+- estruturas funcionais preservadas.
+
+Não considere a tarefa concluída apenas porque a interface parece correta.
+
+Todos os sistemas precisam estar conectados à lógica real do jogo e ao salvamento existente.
+
+Não altere desnecessariamente:
+- movimentação;
+- combate;
+- armas;
+- munição;
+- IA dos zumbis;
+- radar;
+- ciclo dia/noite;
+- sistema de mundos;
+- multiplayer.
+
+Faça somente as alterações relacionadas a Loja, Personalização, Decorações, Créditos, Equipamentos e Buffs descritas acima.
+Falha
+Tá faltando a imagem das coisas, roupas, os itens da base, na loja ou em qualquer lugar pra equipar tá igual essa foto ae. Qnd vc compra alguma coisa ou vc equipa alguma coisa da base ele volta automaticamente pra parte de editar o personagem, isso não pode acontecer. Na base algumas alterações não estão sendo feitas e as decorações antigas estão mostrando na base, o muro não está sendo mudado qnd vc coloca a textura nova, o chão deve mudar tanto o chão da base normal qnt das área especializadas e os muros tbm.
+
+ Aaahhh que dificuldade... Tô perdendo a motivação pra mexer nessa parte de Personalização.
+…
+Mano, agora eu entendi por que você está ficando sem paciência com essa parte. 😅 O problema já não é “falta de feature”; é que o sistema está criando a interface, mas não está aplicando as coisas no mundo real. E a imagem mostra exatamente isso: os cards estão usando um ícone genérico no lugar da imagem do item.
+
+Eu pararia de adicionar qualquer coisa nova na Personalização por enquanto. Primeiro vamos fazer um prompt de correção/estabilização, cobrindo só o que já deveria estar funcionando.
+
+E vou ser bem explícito para o AI Studio: não basta alterar o menu; a mudança precisa aparecer fisicamente no personagem/base.
+
+Prompt de correção da Personalização + Base
+PRECISO DE UMA CORREÇÃO E ESTABILIZAÇÃO DO SISTEMA ATUAL DE LOJA, PERSONALIZAÇÃO E DECORAÇÕES.
+
+IMPORTANTE:
+
+Neste momento NÃO quero adicionar novas categorias, novas mecânicas ou novas funcionalidades.
+
+Quero corrigir o que já foi implementado.
+
+O problema atual é que a interface mostra os itens, mas vários deles ainda não possuem representação visual real, algumas ações mudam de tela indevidamente e várias alterações da base não estão sendo aplicadas fisicamente.
+
+Antes de modificar qualquer coisa, analise o código atual e identifique onde estão:
+- estado da loja;
+- estado da personalização;
+- estado das decorações;
+- estado dos itens equipados;
+- estado das decorações ativas;
+- navegação entre as abas;
+- renderização visual dos itens;
+- renderização visual da base;
+- sistema de salvamento.
+
+Não recrie o projeto.
+
+Não remova sistemas que já funcionam.
+
+Não crie uma segunda implementação paralela.
+
+Corrija a implementação existente.
+
+==================================================
+1. IMAGENS REAIS DOS ITENS
+==================================================
+
+Este é um problema prioritário.
+
+Atualmente vários cards de itens aparecem com um ícone genérico no lugar da imagem do item.
+
+Isso NÃO deve acontecer.
+
+Os itens precisam possuir uma representação visual própria.
+
+Isso vale para:
+
+- roupas;
+- itens de cabeça;
+- itens das costas;
+- skins;
+- decorações visuais;
+- decorações que dão buffs;
+- decorações relacionadas ao nível da base;
+- qualquer outro item que possa ser comprado, equipado ou colocado.
+
+Cada card deve mostrar uma imagem/arte visual correspondente ao próprio item.
+
+NÃO usar o mesmo ícone genérico para representar todos os itens.
+
+NÃO usar apenas o símbolo da categoria como imagem do item.
+
+Exemplo:
+
+Se o item for um chapéu:
+o card deve mostrar o chapéu.
+
+Se for uma roupa:
+o card deve mostrar a roupa.
+
+Se for uma mochila:
+o card deve mostrar a mochila.
+
+Se for um tapete:
+o card deve mostrar o tapete.
+
+Se for uma bandeira:
+o card deve mostrar a bandeira.
+
+Se for uma decoração da base:
+o card deve mostrar a própria decoração.
+
+==================================================
+2. MESMA REPRESENTAÇÃO VISUAL EM TODO O SISTEMA
+==================================================
+
+A imagem/arte de cada item deve ser reutilizada de maneira consistente em:
+
+- Loja;
+- Personalização;
+- Decorações;
+- preview quando apropriado;
+- qualquer tela onde o item seja selecionado/equipado.
+
+Não criar uma imagem diferente ou um placeholder diferente para cada tela.
+
+O item deve possuir uma identidade visual consistente.
+
+Se o projeto já possui assets/representações dos itens, reutilize-os.
+
+Se determinados itens ainda não possuem arte própria, crie uma representação visual coerente com o estilo atual do HORDA em vez de usar o ícone genérico da categoria.
+
+==================================================
+3. COMPRAR NÃO PODE MUDAR DE TELA AUTOMATICAMENTE
+==================================================
+
+Existe um problema de navegação:
+
+Quando o jogador compra alguma coisa, o sistema volta automaticamente para a parte de edição do personagem.
+
+Isso NÃO pode acontecer.
+
+Depois de comprar um item:
+
+- permanecer na Loja;
+- permanecer no filtro/categoria atual;
+- não abrir automaticamente a Personalização;
+- não trocar de aba;
+- não resetar a navegação.
+
+Exemplo:
+
+Jogador está em:
+
+LOJA → CABEÇA
+
+Compra um capacete.
+
+Depois da compra deve continuar em:
+
+LOJA → CABEÇA
+
+e não:
+
+PERSONALIZAÇÃO → CABEÇA.
+
+==================================================
+4. EQUIPAR NÃO PODE MUDAR DE TELA
+==================================================
+
+O mesmo vale para equipar itens.
+
+Se o jogador estiver em:
+
+PERSONALIZAÇÃO → ROUPAS
+
+e equipar uma roupa:
+
+deve continuar em:
+
+PERSONALIZAÇÃO → ROUPAS.
+
+Se estiver em:
+
+PERSONALIZAÇÃO → CABEÇA
+
+e equipar um item:
+
+deve continuar em:
+
+PERSONALIZAÇÃO → CABEÇA.
+
+Não voltar automaticamente para outra aba.
+
+==================================================
+5. DECORAÇÕES DA BASE NÃO PODEM ABRIR A PERSONALIZAÇÃO DO PERSONAGEM
+==================================================
+
+Este é um problema importante.
+
+Quando o jogador compra, equipa ou ativa uma decoração da BASE, o sistema NÃO deve mandar o jogador para a tela de edição do personagem.
+
+Decoração da base deve permanecer dentro do fluxo da BASE/DECORAÇÕES.
+
+Exemplo:
+
+BASE → DECORAÇÕES → VISUAIS
+
+O jogador compra/ativa um tapete.
+
+Depois da ação:
+
+continuar em:
+
+BASE → DECORAÇÕES → VISUAIS
+
+Não abrir:
+
+PERSONALIZAÇÃO → CORPO/ROUPAS/CABEÇA/etc.
+
+O estado de navegação deve ser independente entre:
+
+- personagem;
+- loja;
+- decorações.
+
+==================================================
+6. PRESERVAR O ESTADO DA NAVEGAÇÃO
+==================================================
+
+Corrija o estado da interface para que ações como:
+
+- comprar;
+- equipar;
+- desequipar;
+- ativar decoração;
+- desativar decoração;
+- salvar;
+
+não façam a interface voltar para uma aba padrão.
+
+A tela atual, categoria atual e filtro atual devem permanecer selecionados quando a ação for concluída.
+
+Não resetar o estado da interface desnecessariamente.
+
+==================================================
+7. DECORAÇÕES ANTIGAS AINDA APARECEM FISICAMENTE
+==================================================
+
+Existe outro problema:
+
+As decorações antigas continuam aparecendo fisicamente na base.
+
+Isso significa que remover uma decoração apenas da interface NÃO é suficiente.
+
+Faça uma auditoria no sistema de renderização da base e encontre os objetos físicos antigos relacionados ao sistema anterior de decoração.
+
+Remova esses objetos antigos da renderização da base.
+
+Eles não devem continuar aparecendo simplesmente porque foram definidos em algum template antigo do Abrigo.
+
+IMPORTANTE:
+
+Não remova estruturas funcionais da base.
+
+Preserve:
+
+- paredes;
+- portões;
+- Núcleo;
+- gerador;
+- bancadas;
+- estruturas funcionais;
+- áreas especializadas;
+- construções atuais.
+
+Remover somente os objetos pertencentes ao sistema antigo de decoração.
+
+Depois da correção, um mundo novo também não deve nascer com essas decorações antigas.
+
+==================================================
+8. DECORAÇÕES PRECISAM SER APLICADAS DE VERDADE
+==================================================
+
+Quando o jogador ativa uma decoração, não basta marcar:
+
+"Equipado"
+
+ou
+
+"Ativo"
+
+na interface.
+
+A alteração precisa aparecer fisicamente na base.
+
+Exemplo:
+
+Ativar um tapete:
+
+→ o tapete deve aparecer na base.
+
+Ativar uma bandeira:
+
+→ a bandeira deve aparecer na posição correspondente.
+
+Alterar o piso:
+
+→ o piso da base deve realmente mudar.
+
+Alterar a aparência das paredes:
+
+→ as paredes devem realmente mudar.
+
+Alterar a iluminação:
+
+→ a iluminação visual da base deve realmente mudar.
+
+A interface deve refletir o estado real do mundo, e o mundo deve refletir o estado salvo.
+
+==================================================
+9. TEXTURA DO PISO — TODA A BASE
+==================================================
+
+Existe um problema em que a alteração do piso não está sendo aplicada corretamente.
+
+Quando o jogador escolher uma nova textura/material de chão:
+
+A mudança deve ser aplicada ao chão da BASE PRINCIPAL.
+
+Mas também deve ser aplicada ao chão das ÁREAS ESPECIALIZADAS que já existirem/desbloqueadas.
+
+Não mudar apenas uma parte.
+
+Não deixar o chão antigo aparecendo em algumas regiões.
+
+A aparência do piso deve ser consistente em todas as áreas da base que utilizam o sistema de piso personalizável.
+
+Se novas áreas especializadas forem construídas posteriormente, elas também devem utilizar a configuração de piso atualmente ativa, salvo se existir uma regra específica diferente.
+
+==================================================
+10. TEXTURA/APARÊNCIA DAS PAREDES — TODA A BASE
+==================================================
+
+Existe um problema semelhante com as paredes.
+
+Quando o jogador escolher uma nova aparência/textura/cor das paredes:
+
+As paredes da base devem realmente mudar visualmente.
+
+Isso inclui:
+
+- paredes da base principal;
+- paredes externas;
+- paredes das áreas especializadas quando aplicável.
+
+A mudança é SOMENTE VISUAL.
+
+As paredes continuam possuindo exatamente a mesma resistência/colisão/indestrutibilidade que já possuem.
+
+Não alterar gameplay por causa da textura.
+
+==================================================
+11. NÃO APLICAR A TEXTURA APENAS AO MENU
+==================================================
+
+Muito importante:
+
+Não considerar a tarefa concluída porque o menu mostra:
+
+"Textura equipada"
+
+A condição correta é:
+
+MENU:
+textura equipada
+
+E simultaneamente:
+
+MUNDO:
+paredes/piso realmente renderizados com essa textura.
+
+A mesma regra vale para todas as personalizações visuais da base.
+
+==================================================
+12. DECORAÇÕES VISUAIS DEVEM SER FÍSICAS
+==================================================
+
+Quando uma decoração visual for ativada:
+
+ela deve existir fisicamente no mundo.
+
+Exemplos:
+
+TAPETE:
+deve aparecer no local definido.
+
+BANDEIRA:
+deve aparecer no local definido.
+
+OBJETO DECORATIVO:
+deve aparecer no local definido.
+
+Não criar apenas um registro interno dizendo que a decoração está equipada.
+
+==================================================
+13. BUFFS E ALTERAÇÕES FUNCIONAIS
+==================================================
+
+Se uma decoração fornecer um buff para a base:
+
+o buff deve ser aplicado ao sistema real da base.
+
+Não apenas mostrar o texto no card.
+
+Exemplo:
+
+Se uma decoração fornecer:
+
+"+15% resistência dos portões"
+
+então a resistência real dos portões deve considerar esse bônus.
+
+Se uma decoração fornecer contribuição para nível da base:
+
+o sistema real de progressão deve considerar essa contribuição.
+
+Os bônus precisam ser aplicados somente enquanto a decoração estiver ativa.
+
+Ao remover/desativar:
+
+o bônus deve ser removido corretamente.
+
+Evitar qualquer acumulação duplicada.
+
+==================================================
+14. SALVAMENTO
+==================================================
+
+Depois de todas essas correções, o estado deve ser salvo corretamente.
+
+Salvar:
+
+- itens comprados;
+- itens equipados;
+- decoração ativa;
+- piso escolhido;
+- aparência das paredes;
+- iluminação;
+- posição/estado das decorações;
+- buffs ativos;
+- progressão relacionada às decorações.
+
+Depois de sair e voltar ao mundo:
+
+o mundo deve aparecer exatamente como estava.
+
+Não pode acontecer:
+
+menu diz uma coisa;
+
+mundo mostra outra.
+
+==================================================
+15. TESTE DE INTEGRAÇÃO
+==================================================
+
+Depois de implementar, teste obrigatoriamente:
+
+TESTE 1:
+Comprar um item de cabeça.
+
+Resultado:
+- créditos diminuem;
+- item fica disponível;
+- imagem correta aparece;
+- jogador permanece na Loja;
+- filtro atual permanece selecionado.
+
+TESTE 2:
+Equipar o item de cabeça.
+
+Resultado:
+- jogador permanece na Personalização;
+- filtro permanece selecionado;
+- personagem recebe a aparência;
+- buff é aplicado;
+- não voltar para outra aba.
+
+TESTE 3:
+Comprar/ativar uma decoração visual.
+
+Resultado:
+- permanecer na área de Decorações;
+- não abrir Personalização do personagem;
+- decoração aparecer fisicamente na base.
+
+TESTE 4:
+Alterar piso.
+
+Resultado:
+- chão da base principal muda;
+- chão das áreas especializadas muda.
+
+TESTE 5:
+Alterar parede.
+
+Resultado:
+- paredes realmente mudam visualmente;
+- resistência e colisão continuam iguais.
+
+TESTE 6:
+Entrar em um mundo novo.
+
+Resultado:
+- nenhuma decoração antiga do Abrigo aparece automaticamente;
+- base começa limpa conforme o sistema atual.
+
+TESTE 7:
+Sair e entrar novamente.
+
+Resultado:
+- todas as personalizações continuam aplicadas;
+- imagens e equipamentos continuam corretos;
+- base continua com o piso escolhido;
+- paredes continuam com a aparência escolhida;
+- decorações continuam presentes;
+- buffs continuam corretos.
+
+==================================================
+16. REGRA MAIS IMPORTANTE
+==================================================
+
+NÃO faça apenas alterações na interface.
+
+Para cada alteração, confirme a cadeia:
+
+AÇÃO DO JOGADOR
+↓
+ESTADO DO JOGO
+↓
+SALVAMENTO
+↓
+RENDERIZAÇÃO REAL
+
+Exemplo:
+
+Selecionar piso
+↓
+salvar piso selecionado
+↓
+estado do mundo atualizado
+↓
+todas as superfícies de piso da base utilizam a nova aparência.
+
+Selecionar parede
+↓
+salvar aparência da parede
+↓
+estado da base atualizado
+↓
+paredes reais são renderizadas com a nova aparência.
+
+Equipar roupa
+↓
+salvar equipamento
+↓
+buff aplicado
+↓
+personagem realmente aparece com a roupa.
+
+Ativar decoração
+↓
+salvar decoração ativa
+↓
+buff/efeito aplicado
+↓
+decoração realmente aparece na base.
+
+NÃO considere qualquer item concluído apenas porque a interface mudou.
+
+==================================================
+17. NÃO MEXER NO RESTANTE DO HORDA
+==================================================
+
+Este prompt é exclusivamente para corrigir:
+
+- Loja;
+- Personalização;
+- Equipamentos;
+- imagens dos itens;
+- navegação dessas telas;
+- Decorações;
+- aparência física da base;
+- piso;
+- paredes;
+- objetos decorativos antigos;
+- buffs das decorações;
+- salvamento desses estados.
+
+Não alterar desnecessariamente:
+
+- movimentação;
+- combate;
+- armas;
+- munição;
+- IA dos zumbis;
+- radar;
+- ciclo de dia/noite;
+- progressão das hordas;
+- multiplayer;
+- sistema geral de mundos.
+
+Primeiro corrija e estabilize o que já existe.
+
+Não adicione novas funcionalidades enquanto essas correções não estiverem funcionando.
+E sinceramente: depois desse prompt eu não mexeria mais nessa parte por enquanto. Se o AI Studio conseguir aplicar isso, a gente considera Loja/Personalização/Base visual “congeladas” e volta para gameplay.
+
+Porque ficar tentando aperfeiçoar a tela enquanto o chão não muda, as decorações antigas continuam no mapa e o jogo pula de aba sozinho é receita pra dar vontade de jogar o projeto pela janela 😂. Primeiro fazer funcionar de verdade, depois a gente embeleza.
+
+Cansei. Tira essa merda dessa atualização aí de essas coisas da base e coloca só do personagem, tá? Somente do personagem. Tira toda a personalização que tem e coloca só personagem, somente o personagem, beleza? E tira tudo que tem a ver com personalização da base, ok? Literalmente tudo, tudo, tudo, tudo, tudo, tudo, tudo, tudo, tudo. Não faça seu próprio gigante também, né? Mas do jeito que ele consiga entender. Já chega disso, pelo amor de Deus. Sem contar que não mostra a textura de algumas roupas. Faz assim ó, em vez de equipar, você clica, vai aparecer a roupa lá pra você ver. Só que ele só aparece lá e você não tá equipado. Por exemplo, você clicou, selecionou, você consegue ver como a roupa vai ficar no corpo. Mas ela só aparece dentro do jogo, dentro do mapa, se você tiver comprado e ela estiver equipada. Essa é a alteração que eu quero fazer. Só isso. Tira a loja também da personalização. Não, tira não. Deixa a loja, mas só com as coisas de roupa, entendeu? Separado. Só isso. E em vez de, tá, é só isso mesmo. Depois o mesmo. Pelo amor de Deus, chega
+…
+KKKK, fechou. Vamos encerrar essa novela da base. 😭
+
+O próximo prompt vai fazer só isso:
+
+❌ remover tudo relacionado à personalização/decoração da base;
+❌ remover filtros, cards, buffs, texturas, chão, muros, bandeiras, tapetes etc. da personalização;
+❌ não mexer mais na base através desse sistema;
+✅ deixar Personalização exclusivamente para o personagem;
+✅ Loja continua existindo, mas somente com itens do personagem;
+✅ categorias do personagem continuam organizando os itens;
+✅ clicar em um item = pré-visualizar, não equipar;
+✅ o item aparece no personagem dentro do preview mesmo sem estar equipado;
+✅ só aparece no personagem durante o jogo quando comprado + equipado;
+✅ corrigir as roupas que estão sem textura/imagem;
+✅ não trocar de aba automaticamente.
+E vou manter o prompt bem menor, justamente para o AI Studio não inventar moda.
+
+Prompt
+Quero simplificar definitivamente o sistema de Personalização do HORDA.
+
+IMPORTANTE: NÃO quero mais nenhum sistema de personalização da BASE.
+
+REMOVA COMPLETAMENTE da Personalização qualquer coisa relacionada à base, incluindo:
+- decorações da base;
+- buffs da base;
+- nível da base;
+- piso;
+- textura de paredes;
+- iluminação;
+- tapetes;
+- bandeiras;
+- objetos decorativos;
+- qualquer filtro ou categoria de personalização da base.
+
+Não crie substitutos para essas funções.
+
+A Personalização agora deve tratar SOMENTE do PERSONAGEM.
+
+==================================================
+PERSONALIZAÇÃO DO PERSONAGEM
+==================================================
+
+Mantenha apenas categorias relacionadas ao personagem, como:
+
+- Corpo
+- Roupas
+- Cabeça
+- Costas
+- Skins
+
+Os filtros devem servir somente para organizar os itens do personagem.
+
+Não misture itens de base nessa tela.
+
+==================================================
+PRÉ-VISUALIZAÇÃO
+==================================================
+
+Mude o comportamento dos itens.
+
+Ao clicar em um item, NÃO equipar imediatamente.
+
+O jogador apenas seleciona o item e vê uma PRÉ-VISUALIZAÇÃO dele no personagem.
+
+Exemplo:
+
+Jogador clica em uma roupa.
+
+→ A roupa aparece no personagem dentro do preview.
+→ O item fica apenas selecionado para visualização.
+→ O item NÃO fica equipado no jogo.
+
+Se o jogador fechar a Personalização sem comprar/equipar, essa aparência de preview não deve alterar o personagem real.
+
+==================================================
+EQUIPAMENTO REAL
+==================================================
+
+Um item só deve aparecer no personagem durante o gameplay quando:
+
+1. o item tiver sido comprado;
+2. o item estiver realmente equipado.
+
+Selecionar/pré-visualizar NÃO significa equipar.
+
+Exemplo:
+
+Roupa não comprada:
+→ pode ser pré-visualizada;
+→ não aparece no gameplay.
+
+Roupa comprada, mas não equipada:
+→ pode ser selecionada;
+→ não aparece no gameplay.
+
+Roupa comprada e equipada:
+→ aparece no personagem durante o gameplay.
+
+O equipamento real deve continuar salvo.
+
+==================================================
+LOJA
+==================================================
+
+Mantenha a Loja, mas ela deve conter SOMENTE itens do PERSONAGEM.
+
+Não colocar nenhuma decoração ou item da base na Loja.
+
+A Loja pode utilizar as mesmas categorias do personagem para organização:
+
+- Corpo
+- Roupas
+- Cabeça
+- Costas
+- Skins
+
+Itens comprados devem ser registrados como desbloqueados e não devem ser comprados novamente.
+
+Os créditos devem continuar funcionando normalmente.
+
+==================================================
+TEXTURAS E IMAGENS
+==================================================
+
+Corrija o problema atual em que algumas roupas/itens aparecem sem textura ou apenas com um ícone genérico.
+
+Cada item do personagem precisa ter sua própria representação visual correta.
+
+A pré-visualização deve mostrar a aparência real do item no personagem.
+
+Não usar um ícone genérico no lugar da roupa quando existir uma textura/representação específica.
+
+Verifique especialmente:
+- roupas;
+- cabeça;
+- costas;
+- skins.
+
+==================================================
+NAVEGAÇÃO
+==================================================
+
+Ao selecionar ou pré-visualizar um item:
+
+- não trocar de aba;
+- não voltar automaticamente para outra categoria;
+- não abrir a Personalização depois de uma ação da Loja;
+- preservar a categoria atualmente selecionada.
+
+==================================================
+REGRA FINAL
+==================================================
+
+NÃO faça nenhuma alteração relacionada à personalização da base.
+
+NÃO adicionar novas funcionalidades de base.
+
+NÃO mexer em:
+- chão;
+- paredes;
+- decorações;
+- iluminação;
+- bandeiras;
+- tapetes;
+- buffs da base;
+- nível da base.
+
+O sistema de Personalização deve ficar exclusivamente focado no PERSONAGEM.
+
+Faça apenas essas alterações e preserve o restante do HORDA.
+Falha
+Agora só falta tirar essas decorações. Bandei, esse trem redondo, o tapete, etc.
+Sim. Agora é só uma limpeza dos objetos decorativos antigos que ainda estão fisicamente no mapa. Não vamos mexer em Personalização, Loja, personagem ou qualquer outro sistema.
+
+Manda este prompt:
+
+Faça somente uma limpeza dos objetos decorativos antigos que ainda aparecem fisicamente dentro da base do HORDA.
+
+Na imagem é possível ver que ainda existem elementos decorativos antigos espalhados pela base, como:
+
+- bandeiras;
+- objetos circulares/redondos;
+- tapetes;
+- objetos decorativos próximos ao Núcleo;
+- outros elementos que pertenciam ao antigo sistema de personalização/decoração da base.
+
+REMOVA ESSES OBJETOS ANTIGOS DA BASE.
+
+IMPORTANTE:
+
+Não remova nenhuma estrutura funcional da base.
+
+Mantenha intactos:
+- Núcleo da Base;
+- paredes;
+- portões;
+- bancadas;
+- gerador;
+- hospital;
+- armazenamento;
+- comando da base;
+- áreas especializadas;
+- estruturas funcionais;
+- elementos necessários para gameplay.
+
+Remova SOMENTE os objetos decorativos antigos que foram deixados pelo sistema anterior de personalização da base.
+
+Eles não devem mais aparecer fisicamente no mapa.
+
+Também verifique se esses objetos estão sendo adicionados por algum template inicial da base, estado padrão do mundo ou função de criação da base.
+
+Não basta escondê-los visualmente.
+
+Remova a origem desses objetos para que:
+
+1. mundos novos não criem essas decorações;
+2. mundos existentes também deixem de renderizá-las;
+3. elas não reapareçam depois de recarregar o mundo;
+4. elas não sejam recriadas ao entrar novamente na base.
+
+NÃO adicione novas decorações no lugar.
+
+NÃO crie um novo sistema de decoração.
+
+NÃO altere a personalização do personagem.
+
+NÃO altere a Loja.
+
+NÃO altere combate, armas, munição, IA, mapa ou qualquer outro sistema.
+
+Esta tarefa é SOMENTE remover as decorações antigas da base e garantir que elas não voltem a aparecer.
+Esse é bem mais seguro. Não vamos inventar mais nada nessa parte. É literalmente uma faxina nos objetos que sobraram.
+
+Falha
+Percebe algo faltando?? Ent tbm quero q faça uma modificação no design pra mostrar tudo e qnd vc clicar no item q vc quer ver como ficou vc clica uma vez mostra o Preview qnd vc clica dnv ele sai. Refaz o prompt aí adicionado isso aí.
+Sim. Tem coisa faltando, e agora dá pra ver bem pela imagem.
+
+O principal que está faltando é a barra de filtros/categorias do personagem que tínhamos decidido: Corpo, Roupas, Cabeça, Costas e Skins. Atualmente ele está praticamente jogando tudo numa lista de “Traje”.
+
+Também tem outro problema de design: os cards estão grandes demais e isso faz você enxergar pouquíssimos itens por vez. E o botão “EQUIPAR ESTE ITEM” está ocupando espaço demais para uma função que agora queremos tratar de outra forma.
+
+Vou refazer o prompt para:
+
+colocar os 5 filtros;
+deixar os cards menores/mais compactos para mostrar mais itens;
+manter a imagem do item;
+1 toque no card = pré-visualiza no personagem;
+2º toque no mesmo card = remove a pré-visualização;
+pré-visualização não equipa;
+equipar continua sendo uma ação separada;
+item não comprado pode ser visualizado, mas não usado no gameplay;
+item comprado + equipado aparece no personagem durante o jogo;
+não voltar para outra aba;
+preservar a prévia enquanto o jogador navega pela categoria;
+manter tudo responsivo em portrait/landscape.
+E vou deixar explícito que não é para criar mais coisa de base.
+
+Prompt novo
+Quero corrigir e melhorar SOMENTE o sistema atual de Loja e Personalização do PERSONAGEM no HORDA.
+
+Não adicionar nenhum sistema relacionado à personalização da base.
+
+Não mexer em:
+- decorações da base;
+- chão;
+- paredes;
+- iluminação;
+- bandeiras;
+- tapetes;
+- buffs da base;
+- nível da base.
+
+O foco deste prompt é exclusivamente o PERSONAGEM.
+
+==================================================
+1. FILTROS DE PERSONALIZAÇÃO
+==================================================
+
+Atualmente a tela está mostrando os itens de forma muito genérica, principalmente como "TRAJE".
+
+Isso precisa ser corrigido.
+
+A Personalização deve possuir filtros/categorias para organizar os itens do personagem:
+
+- CORPO
+- ROUPAS
+- CABEÇA
+- COSTAS
+- SKINS
+
+Esses filtros devem ficar em uma barra horizontal, semelhante à ideia da interface anterior.
+
+No celular, a barra deve poder ser deslizada horizontalmente.
+
+Ao selecionar uma categoria, mostrar somente os itens daquela categoria.
+
+Exemplo:
+
+CORPO → itens relacionados ao corpo
+
+ROUPAS → roupas
+
+CABEÇA → chapéus, capacetes etc.
+
+COSTAS → mochilas, capas etc.
+
+SKINS → skins
+
+Não misturar todas as categorias em uma lista única.
+
+==================================================
+2. DESIGN DOS CARDS
+==================================================
+
+Os cards atuais estão grandes demais e mostram poucos itens na tela.
+
+Reorganize o layout para conseguir mostrar mais itens simultaneamente, especialmente no celular.
+
+Use cards menores e compactos, mantendo:
+
+- imagem do item;
+- nome;
+- categoria;
+- informação essencial;
+- estado do item;
+- indicação se está equipado/comprado.
+
+Não remover a imagem.
+
+Não substituir a imagem por um ícone genérico da categoria.
+
+A imagem deve representar o item real.
+
+O layout deve continuar legível em:
+- celular portrait;
+- celular landscape;
+- PC/Chromebook.
+
+==================================================
+3. PRÉ-VISUALIZAÇÃO COM UM TOQUE
+==================================================
+
+Quero mudar a interação dos cards.
+
+Ao tocar UMA VEZ em um item:
+
+→ selecionar o item;
+→ mostrar imediatamente esse item no PREVIEW do personagem;
+→ NÃO equipar o item;
+→ NÃO alterar o personagem real no gameplay.
+
+O jogador deve conseguir ver como aquele item ficará no personagem antes de decidir equipá-lo.
+
+Isso deve funcionar inclusive para itens que ainda não foram comprados.
+
+Exemplo:
+
+O jogador toca em uma roupa não comprada.
+
+A roupa aparece no personagem no Preview.
+
+Porém ela continua NÃO COMPRADA e NÃO EQUIPADA.
+
+==================================================
+4. SEGUNDO TOQUE REMOVE O PREVIEW
+==================================================
+
+Se o jogador tocar NOVAMENTE no mesmo item que já está selecionado:
+
+→ remover a pré-visualização daquele item;
+→ voltar o Preview para o equipamento real atualmente equipado.
+
+Portanto:
+
+Primeiro toque:
+ITEM → aparece no Preview.
+
+Segundo toque no mesmo item:
+ITEM → sai do Preview.
+
+Não criar outro menu para isso.
+
+A interação deve ser simples e direta.
+
+==================================================
+5. PRÉ-VISUALIZAÇÃO NÃO É EQUIPAMENTO
+==================================================
+
+Isso é extremamente importante.
+
+SELECIONAR um item NÃO significa EQUIPAR.
+
+São estados diferentes:
+
+NÃO COMPRADO
+→ pode ser visualizado no Preview;
+→ não pode aparecer no gameplay.
+
+COMPRADO, MAS NÃO EQUIPADO
+→ pode ser visualizado no Preview;
+→ não aparece no gameplay.
+
+COMPRADO E EQUIPADO
+→ aparece no Preview;
+→ aparece no personagem durante o gameplay.
+
+O Preview é apenas temporário.
+
+==================================================
+6. EQUIPAMENTO REAL
+==================================================
+
+O equipamento real deve continuar sendo uma ação separada.
+
+Quando o jogador possuir o item e decidir equipá-lo:
+
+→ registrar como equipamento atual;
+→ salvar;
+→ atualizar o personagem real;
+→ aplicar o visual durante o gameplay.
+
+Não equipar automaticamente apenas porque o jogador clicou no card para visualizar.
+
+Não transformar a pré-visualização em equipamento.
+
+==================================================
+7. BOTÕES E INTERAÇÃO
+==================================================
+
+Não deixar um botão gigante "EQUIPAR ESTE ITEM" ocupando grande parte de cada card.
+
+O card deve priorizar:
+
+1. imagem;
+2. nome;
+3. efeito/informação curta;
+4. estado do item.
+
+A ação de equipar deve ser clara, mas compacta.
+
+Se o item não foi comprado:
+
+mostrar que ele está bloqueado/não comprado e seu preço quando aplicável.
+
+Se foi comprado:
+
+mostrar uma ação compacta para equipar.
+
+Se já estiver equipado:
+
+mostrar "EQUIPADO".
+
+Não usar o botão de equipar como elemento visual dominante do card.
+
+==================================================
+8. IMAGENS E TEXTURAS
+==================================================
+
+Corrigir definitivamente o problema de alguns itens aparecerem sem textura adequada.
+
+Cada item deve possuir sua própria representação visual.
+
+Isso inclui:
+
+- roupas;
+- itens de cabeça;
+- itens das costas;
+- skins;
+- corpo, quando aplicável.
+
+Não usar o mesmo desenho genérico para todos os itens.
+
+Se o item possuir uma textura própria no projeto, utilizar essa textura.
+
+A mesma representação visual deve ser usada de forma consistente no card e no Preview quando possível.
+
+==================================================
+9. PREVIEW DO PERSONAGEM
+==================================================
+
+O Preview no topo deve atualizar imediatamente quando o jogador selecionar um item.
+
+Exemplo:
+
+Jogador está usando:
+Roupa A
+
+Seleciona Roupa B.
+
+Preview:
+mostra Roupa B.
+
+Mas o equipamento real continua sendo:
+Roupa A
+
+Se o jogador tocar novamente em Roupa B:
+Preview volta para Roupa A.
+
+Isso permite comparar visualmente sem alterar o equipamento real.
+
+==================================================
+10. NAVEGAÇÃO
+==================================================
+
+Ao selecionar, pré-visualizar, desequipar ou equipar:
+
+- não trocar automaticamente de aba;
+- não voltar para a primeira categoria;
+- não abrir outra tela;
+- não mandar o jogador para a Loja;
+- não mandar o jogador para a Personalização automaticamente.
+
+Preservar:
+- categoria atual;
+- item selecionado;
+- estado do Preview.
+
+Exemplo:
+
+PERSONALIZAÇÃO → CABEÇA
+
+Seleciona um capacete.
+
+Continua em:
+PERSONALIZAÇÃO → CABEÇA
+
+==================================================
+11. LOJA
+==================================================
+
+A Loja continua existindo, mas deve conter SOMENTE itens do PERSONAGEM.
+
+Utilizar os mesmos filtros:
+
+- CORPO
+- ROUPAS
+- CABEÇA
+- COSTAS
+- SKINS
+
+Os itens comprados devem sair da lista de compra.
+
+Itens comprados ficam disponíveis na Personalização.
+
+A compra deve descontar os créditos reais.
+
+Não modificar nenhuma parte relacionada à base.
+
+==================================================
+12. RESPONSIVIDADE
+==================================================
+
+O novo layout precisa funcionar bem no celular.
+
+PORTRAIT:
+mostrar uma quantidade boa de cards sem deixar tudo gigante.
+
+LANDSCAPE:
+usar melhor a largura disponível e mostrar mais itens.
+
+PC:
+adaptar a quantidade de colunas ao espaço disponível.
+
+Não deixar:
+- cards cortados;
+- imagens cortadas;
+- texto fora da tela;
+- botões sobrepostos;
+- filtros inacessíveis.
+
+==================================================
+13. REGRA FINAL
+==================================================
+
+Não recriar o sistema inteiro.
+
+Corrigir e reorganizar o sistema existente.
+
+Não adicionar funcionalidades de base.
+
+Não adicionar novos tipos de itens.
+
+Não criar novos sistemas de decoração.
+
+O objetivo é somente deixar:
+
+LOJA
+→ filtros de personagem
+→ cards compactos
+→ compra real
+
+PERSONALIZAÇÃO
+→ filtros de personagem
+→ cards compactos
+→ toque = Preview
+→ segundo toque = remover Preview
+→ equipamento separado da pré-visualização
+→ aparência real do personagem
+
+O resultado deve ser visualmente limpo, mostrar mais itens na tela e permitir experimentar visualmente as roupas e outros itens antes de equipá-los.
+
+
